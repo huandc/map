@@ -57,13 +57,16 @@ class MapApplicationTests {
     @Test
     public void getAllBaseStationRadiation(){
 
-        List<BaseStationRadiation> all = baseStationRadiationMapper.findAll();
+//        List<BaseStationRadiation> all = baseStationRadiationMapper.findAll();
 //        all.forEach(
 //                System.out::println
 //        );
 
         List<BaseStationRadiation> list = baseStationRadiationMapper.findOneByLatAndLong(30.47331, 114.276532);
-        System.out.println(list);
+
+        list.forEach(
+                System.out::println
+        );
     }
 
 

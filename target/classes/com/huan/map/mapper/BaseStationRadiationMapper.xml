@@ -11,6 +11,14 @@
     <!--        select count(*) from base_station-->
     <!--    </select>-->
 
+    <resultMap id="BaseResultMap" type="com.huan.map.model.BaseStationRadiation">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="userName" jdbcType="VARCHAR" property="userName" />
+        <result column="passWord" jdbcType="VARCHAR" property="passWord" />
+        <result column="realName" jdbcType="VARCHAR" property="realName" />
+    </resultMap>
+
+
     <select id="findAll" resultType="com.huan.map.model.BaseStationRadiation">
         select latitude,longitude,distance,average,average,powerDensity,provider
         from radiation_measurement  join base
