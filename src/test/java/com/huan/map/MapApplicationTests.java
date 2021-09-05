@@ -45,6 +45,7 @@ class MapApplicationTests {
     public void getAllRadiationMeasurement(){
 
         List<RadiationMeasurement> all = radiationMeasurementMapper.findAll();
+        System.out.println("all = " + all.size());
         all.forEach(
                 System.out::println
         );

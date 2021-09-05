@@ -13,6 +13,6 @@ public class BaseStationRadiation {
     double longitude; //经度
     int distance; //距离基站中心水平距离
     double average; //平均值
-    double powerDensity;//功率密度
+    Double powerDensity;//功率密度
     String provider; //运营商
 }
