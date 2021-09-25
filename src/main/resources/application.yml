@@ -1,16 +1,19 @@
 server:
   port: 8080
+  servlet:
+    context-path: /map
+
 
 #集成mysql数据库的配置
 
 spring:
   datasource:
-    # 云数据库会在2021-11-28过期 需要注意
-    url: jdbc:mysql://182.254.211.16:3306/map?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    # 云数据库会在2021-11-28过期 需要注意182.254.211.16   MYSQLhuan123@@
+    url: jdbc:mysql://localhost:3306/map?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     username: root
-    password: MYSQLhuan123@@
+    password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 
-mybatis:  #mybatyis的配置
+mybatis: #mybatyis的配置
   mapper-locations: classpath*:com/huan/map/mapper/*.xml #指定mapper的配置文件的路径是mapper文件夹下的所有 xml文件。
