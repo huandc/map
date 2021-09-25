@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--上面2行的是约束依赖，固定照抄就好-->
+<!--下面的才是要自己编写的地方-->
+<!--写mapper的配置文件第一步就是要写<mapper></mapper>标签-->
+<!--<mapper></mapper>标签里包含着各个CURD操作的SQL语句-->
+<mapper namespace="com.huan.map.mapper.BaseMapper">
+
+    <insert id="addBase">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into base(latitude, longitude, address)
+        values (#{latitude}, #{longitude}, #{address})
+    </insert>
+    <update id="updateBase">
+        update base
+        set address = #{address}
+        where latitude = #{latitude}
+          and longitude = #{longitude}
+    </update>
+    <delete id="deleteBase">
+        delete
+        from base
+        <where>
+            <if test="latitude!=null">
+                latitude = #{latitude}
+            </if>
+            <if test="longitude!=null">
+                and longitude = #{longitude}
+            </if>
+        </where>
+    </delete>
+    <select id="getBase" resultType="com.huan.map.model.Base">
+        select *
+        from base
+        <where>
+            <if test="address != null and address!=''">
+                address = #{address}
+            </if>
+            <if test="latitude!=null and longitude!=null">
+                and latitude = #{latitude} and longitude=#{longitude}
+            </if>
+        </where>
+    </select>
+
+</mapper>

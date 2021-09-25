@@ -6,12 +6,33 @@
 <!--<mapper></mapper>标签里包含着各个CURD操作的SQL语句-->
 <mapper namespace="com.huan.map.mapper.BaseStationMapper">
 
-<!--    &lt;!&ndash;查找语句&ndash;&gt;-->
-<!--    <select id="count" resultType="int">-->
-<!--        select count(*) from base_station-->
-<!--    </select>-->
+    <insert id="addBaseStation">
+        <selectKey keyProperty="id" order="AFTER" resultType="int">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into base_station(latitude, longitude, name, address, high, type, nums, status, model, antenna, region)
+        values (#{latitude}, #{longitude}, #{name}, #{address}, #{high}, #{type}, #{nums}, #{status}, #{model}, #{antenna}, #{region})
+    </insert>
+    <delete id="deleteBaseStation">
+        delete
+        from base_station
+        <where>
+            <if test="id!=null">
+                id = #{id}
+            </if>
+            <if test="latitude!=null and longitude!=null">
+                and latitude = #{latitude} and longitude = #{longitude}
+            </if>
+        </where>
+    </delete>
+
+    <!--    &lt;!&ndash;查找语句&ndash;&gt;-->
+    <!--    <select id="count" resultType="int">-->
+    <!--        select count(*) from base_station-->
+    <!--    </select>-->
     <select id="findAll" resultType="com.huan.map.model.BaseStation">
-        select * from base_station
+        select *
+        from base_station
     </select>
 
 </mapper>

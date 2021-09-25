@@ -5,13 +5,25 @@
 <!--写mapper的配置文件第一步就是要写<mapper></mapper>标签-->
 <!--<mapper></mapper>标签里包含着各个CURD操作的SQL语句-->
 <mapper namespace="com.huan.map.mapper.RadiationMeasurementMapper">
-
+    <insert id="addRadiationMeasurement">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into radiation_measurement(address, distance, average, powerDensity, provider)
+        values (#{address}, #{distance}, #{average}, #{powerDensity}, #{provider})
+    </insert>
+    <delete id="deleteRadiationMeasurement">
+        delete
+        from radiation_measurement
+        where address = #{address}
+    </delete>
     <!--    &lt;!&ndash;查找语句&ndash;&gt;-->
     <!--    <select id="count" resultType="int">-->
     <!--        select count(*) from base_station-->
     <!--    </select>-->
     <select id="findAll" resultType="com.huan.map.model.RadiationMeasurement">
-        select * from radiation_measurement
+        select *
+        from radiation_measurement
     </select>
 
 </mapper>
