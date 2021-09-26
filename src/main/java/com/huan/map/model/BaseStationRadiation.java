@@ -9,6 +9,7 @@ import lombok.Data;
  */
 @Data
 public class BaseStationRadiation {
+    int id;
     double latitude; //纬度
     double longitude; //经度
     int distance; //距离基站中心水平距离
