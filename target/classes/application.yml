@@ -5,6 +5,7 @@ server:
 
 spring:
   datasource:
+    # 云数据库会在2021-11-28过期 需要注意
     url: jdbc:mysql://182.254.211.16:3306/map?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     username: root
     password: MYSQLhuan123@@

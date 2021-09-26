@@ -18,7 +18,7 @@ import java.util.List;
 
 @org.springframework.stereotype.Controller
 @ResponseBody
-@RequestMapping("/base/station/radiation")
+//@RequestMapping("/base/station/radiation")
 @Api(tags = "电信数据基站")
 public class Controller {
 
@@ -26,13 +26,19 @@ public class Controller {
     private BaseStationRadiationMapper baseStationRadiationMapper;
 
     @RequestMapping("/")
-//    @ApiOperation("测试")
-    public String index() {
+    @ApiOperation("测试")
+    public String test() {
         return "Hello";
     }
 
+    @RequestMapping("/index")
+    @ApiOperation("index")
+    public String index() {
+        return "index";
+    }
+
     //返回所有基站的辐射
-//    @ApiOperation("获取所有基站的辐射")
+    @ApiOperation("获取所有基站的辐射")
     @RequestMapping("/showAll")
     public List<BaseStationRadiation> showAll() {
         return baseStationRadiationMapper.findAll();
@@ -41,7 +47,7 @@ public class Controller {
 
     //按照参数返回该基站的辐射
     //http://localhost:8080/show?latitude=30.47331&longitude=114.276532&distance=10&provider=%中国电信
-//    @ApiOperation("获取所有基站的辐射根据具体参数")
+    @ApiOperation("获取所有基站的辐射根据具体参数")
     @RequestMapping("/show")
     public List<BaseStationRadiation> showOne(@RequestParam(value = "latitude", defaultValue = "0") double latitude,
                                               @RequestParam(value = "longitude", defaultValue = "0") double longitude,
