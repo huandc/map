@@ -30,7 +30,7 @@ public class BaseStationController {
         return baseStationMapper.addBaseStation(baseStationRequestDTO);
     }
 
-    @ApiOperation("删除基站信息")
+    @ApiOperation("删除基站信息(传入主键id或者传入经纬度)")
     @PostMapping("/delete")
     public int deleteBaseStation(@ApiParam(name = "id", value = "主键id") @RequestParam(required = false) Integer id,
                                  @ApiParam(name = "latitude", value = "经度") @RequestParam Double latitude,

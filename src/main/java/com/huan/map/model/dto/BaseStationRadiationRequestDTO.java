@@ -20,11 +20,6 @@ public class BaseStationRadiationRequestDTO {
     @ApiModelProperty("经度")
     Double longitude;
     /**
-     * 地址
-     */
-    @ApiModelProperty("地址")
-    String address;
-    /**
      * 距离基站中心水平距离
      */
     @ApiModelProperty("距离基站中心水平距离")
@@ -61,13 +56,6 @@ public class BaseStationRadiationRequestDTO {
         this.longitude = longitude;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
     public Integer getDistance() {
         return distance;

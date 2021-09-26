@@ -2,6 +2,7 @@ package com.huan.map.mapper;
 
 import com.huan.map.model.BaseStationRadiation;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,5 +19,11 @@ public interface BaseStationRadiationMapper {
     List<BaseStationRadiation> findOneByLatAndLong(double latitude, double longitude);
 
 
-    List<BaseStationRadiation> findOneByAllParameters(double latitude, double longitude,int distance,String provider);
+    List<BaseStationRadiation> findOneByAllParameters(double latitude, double longitude, int distance, String provider);
+
+    List<BaseStationRadiation> getBaseStationRadiation(Double latitude, Double longitude, Integer distance, Double average, Double powerDensity, String provider);
+
+    int addBaseStationRadiation(BaseStationRadiation baseStationRadiation);
+
+    int deleteBaseStationRadiation(@Param("latitude") Double latitude, @Param("longitude") Double longitude);
 }
