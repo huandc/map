@@ -23,7 +23,9 @@ public interface BaseStationRadiationMapper {
 
     List<BaseStationRadiation> getBaseStationRadiation(Double latitude, Double longitude, Integer distance, Double average, Double powerDensity, String provider);
 
+    List<BaseStationRadiation> listAllBaseStationRadiation();
+
     int addBaseStationRadiation(BaseStationRadiation baseStationRadiation);
 
-    int deleteBaseStationRadiation(@Param("latitude") Double latitude, @Param("longitude") Double longitude);
+    int deleteBaseStationRadiation(@Param("id") int id);
 }

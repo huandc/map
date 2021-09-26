@@ -13,32 +13,32 @@ public class BaseStationRadiationRequestDTO {
      * 纬度
      */
     @ApiModelProperty("纬度")
-    Double latitude; //纬度
+    private Double latitude; //纬度
     /**
      * 经度
      */
     @ApiModelProperty("经度")
-    Double longitude;
+    private Double longitude;
     /**
      * 距离基站中心水平距离
      */
     @ApiModelProperty("距离基站中心水平距离")
-    Integer distance;
+    private Integer distance;
     /**
      * 平均值
      */
     @ApiModelProperty("平均值")
-    Double average;
+    private Double average;
     /**
      * 功率密度
      */
     @ApiModelProperty("功率密度")
-    Double powerDensity;
+    private Double powerDensity;
     /**
      * 运营商
      */
     @ApiModelProperty("运营商")
-    String provider;
+    private String provider;
 
     public Double getLatitude() {
         return latitude;

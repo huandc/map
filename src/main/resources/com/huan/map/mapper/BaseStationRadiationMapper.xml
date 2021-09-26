@@ -13,8 +13,7 @@
     <delete id="deleteBaseStationRadiation">
         delete
         from base_station_radiation
-        where latitude = #{latitude}
-          and longitude = #{longitude}
+        where id = #{id}
     </delete>
 
     <!--    &lt;!&ndash;查找语句&ndash;&gt;-->
@@ -64,6 +63,10 @@
             <if test="powerDensity !=null">and powerDensity = #{powerDensity}</if>
             <if test="provider !=null and provider !=''">and provider = #{provider}</if>
         </where>
+    </select>
+    <select id="listAllBaseStationRadiation" resultType="com.huan.map.model.BaseStationRadiation">
+        select *
+        from base_station_radiation
     </select>
 
 </mapper>

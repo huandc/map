@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * BaseStationRadiation
@@ -27,6 +28,12 @@ public class BaseStationRadiationController {
     @Resource
     private BaseStationRadiationService baseStationRadiationService;
 
+    @ApiOperation("查询所有基站辐射")
+    @PostMapping("/get")
+    public List<BaseStationRadiation> getBaseStationRadiation() {
+        return baseStationRadiationMapper.listAllBaseStationRadiation();
+    }
+
     @ApiOperation("新增基站辐射")
     @PostMapping("/add")
     public int addBaseStationRadiation(@ApiParam(name = "BaseStationRadiation", value = "基站辐射", required = true)
@@ -36,9 +43,8 @@ public class BaseStationRadiationController {
 
     @ApiOperation("删除基站辐射")
     @PostMapping("/delete")
-    public int deleteBaseStationRadiation(@ApiParam(name = "latitude", value = "经度") @RequestParam Double latitude,
-                                          @ApiParam(name = "longitude", value = "纬度") @RequestParam Double longitude) {
-        return baseStationRadiationMapper.deleteBaseStationRadiation(latitude, longitude);
+    public int deleteBaseStationRadiation(@ApiParam(name = "id", value = "id") @RequestParam int id) {
+        return baseStationRadiationMapper.deleteBaseStationRadiation(id);
     }
 
     @ApiOperation("从radiation_measurement和base刷新数据到base_station_radiation")
