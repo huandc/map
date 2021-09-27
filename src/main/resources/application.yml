@@ -9,11 +9,15 @@ server:
 spring:
   datasource:
     # 云数据库会在2021-11-28过期 需要注意182.254.211.16   MYSQLhuan123@@
-    url: jdbc:mysql://localhost:3306/map?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://82.254.211.16:3306/map?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     username: root
-    password: 123456
+    password: MYSQLhuan123@@
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 
 mybatis: #mybatyis的配置
   mapper-locations: classpath*:com/huan/map/mapper/*.xml #指定mapper的配置文件的路径是mapper文件夹下的所有 xml文件。
+
+logging:
+  level:
+    com.huan.map.mapper: debug

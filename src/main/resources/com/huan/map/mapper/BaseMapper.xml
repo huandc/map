@@ -22,14 +22,8 @@
     <delete id="deleteBase">
         delete
         from base
-        <where>
-            <if test="latitude!=null">
-                latitude = #{latitude}
-            </if>
-            <if test="longitude!=null">
-                and longitude = #{longitude}
-            </if>
-        </where>
+        where latitude = #{latitude}
+          and longitude = #{longitude}
     </delete>
     <select id="getBase" resultType="com.huan.map.model.Base">
         select *

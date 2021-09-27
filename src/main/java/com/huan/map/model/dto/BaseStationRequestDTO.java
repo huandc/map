@@ -11,62 +11,62 @@ import io.swagger.annotations.ApiModelProperty;
 public class BaseStationRequestDTO {
 
     @ApiModelProperty(hidden = true)
-    int id;
+    private int id;
     /**
      * 纬度
      */
     @ApiModelProperty("纬度")
-    Double latitude; //纬度
+    private Double latitude; //纬度
     /**
      * 经度
      */
     @ApiModelProperty("经度")
-    Double longitude;
+    private Double longitude;
     /**
      * 基站名称
      */
     @ApiModelProperty("基站名称")
-    String name;
+    private String name;
     /**
      * 地址
      */
     @ApiModelProperty("地址")
-    String address;
+    private String address;
     /**
      * 离地高度
      */
     @ApiModelProperty("离地高度")
-    String high;
+    private String high;
     /**
      * 天线支架类型
      */
     @ApiModelProperty("天线支架类型")
-    String type;
+    private String type;
     /**
      * 天线数量
      */
     @ApiModelProperty("天线数量")
-    Double nums;
+    private Double nums;
     /**
      * 运行状态
      */
     @ApiModelProperty("运行状态")
-    String status;
+    private String status;
     /**
      * 发射机型号
      */
     @ApiModelProperty("发射机型号")
-    String model;
+    private String model;
     /**
      * 天线下倾角（机械下倾角+电子下倾角）
      */
     @ApiModelProperty("天线下倾角（机械下倾角+电子下倾角）")
-    String antenna;
+    private String antenna;
     /**
      * 区域
      */
     @ApiModelProperty("区域")
-    String region;
+    private String region;
 
     public int getId() {
         return id;
