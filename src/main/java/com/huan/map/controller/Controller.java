@@ -41,7 +41,7 @@ public class Controller {
     @ApiOperation("获取所有基站的辐射")
     @RequestMapping("/showAll")
     public List<BaseStationRadiation> showAll() {
-        return baseStationRadiationMapper.findAll();
+        return baseStationRadiationMapper.listAllBaseStationRadiation();
     }
 
 
@@ -49,9 +49,9 @@ public class Controller {
     //http://localhost:8080/show?latitude=30.47331&longitude=114.276532&distance=10&provider=%中国电信
     @ApiOperation("获取所有基站的辐射根据具体参数")
     @RequestMapping("/show")
-    public List<BaseStationRadiation> showOne(@RequestParam(value = "latitude", defaultValue = "0") double latitude,
-                                              @RequestParam(value = "longitude", defaultValue = "0") double longitude,
-                                              @RequestParam(value = "distance", defaultValue = "0") int distance,
+    public List<BaseStationRadiation> showOne(@RequestParam(value = "latitude", defaultValue = "0") Double latitude,
+                                              @RequestParam(value = "longitude", defaultValue = "0") Double longitude,
+                                              @RequestParam(value = "distance", defaultValue = "0") Integer distance,
                                               @RequestParam(value = "provider", defaultValue = "") String provider) {
 
         return baseStationRadiationMapper.findOneByAllParameters(latitude, longitude, distance, provider);

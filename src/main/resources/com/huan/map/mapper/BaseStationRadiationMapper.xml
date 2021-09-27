@@ -56,12 +56,15 @@
         select *
         from base_station_radiation
         <where>
-            <if test="latitude != null and latitude != 0">latitude = #{latitude}</if>
-            <if test="longitude != null and longitude != 0">and longitude = #{longitude}</if>
-            <if test="distance != null and distance gt 0">and distance = #{distance}</if>
-            <if test="average !=null">and average = #{average}</if>
-            <if test="powerDensity !=null">and powerDensity = #{powerDensity}</if>
-            <if test="provider !=null and provider !=''">and provider = #{provider}</if>
+            <if test="latitude != null and latitude != 0 and longitude != null and longitude != 0">
+                and latitude=#{latitude} and longitude=#{longitude}
+            </if>
+            <if test="distance gt 0">
+                and distance=#{distance}
+            </if>
+            <if test="provider !=null and provider != ''">
+                and provider=#{provider}
+            </if>
         </where>
     </select>
     <select id="listAllBaseStationRadiation" resultType="com.huan.map.model.BaseStationRadiation">

@@ -10,11 +10,11 @@ import lombok.Data;
  */
 @Data
 public class BaseStationRadiation {
-    int id;
-    double latitude; //纬度
-    double longitude; //经度
-    int distance; //距离基站中心水平距离
-    double average; //平均值
+    Integer id;
+    Double latitude; //纬度
+    Double longitude; //经度
+    Integer distance; //距离基站中心水平距离
+    Double average; //平均值
     Double powerDensity;//功率密度
     String provider; //运营商
 }

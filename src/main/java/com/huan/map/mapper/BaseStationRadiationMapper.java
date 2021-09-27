@@ -19,9 +19,9 @@ public interface BaseStationRadiationMapper {
     List<BaseStationRadiation> findOneByLatAndLong(double latitude, double longitude);
 
 
-    List<BaseStationRadiation> findOneByAllParameters(double latitude, double longitude, int distance, String provider);
+    List<BaseStationRadiation> findOneByAllParameters(Double latitude, Double longitude, Integer distance, String provider);
 
-    List<BaseStationRadiation> getBaseStationRadiation(Double latitude, Double longitude, Integer distance, Double average, Double powerDensity, String provider);
+    List<BaseStationRadiation> getBaseStationRadiation(Double latitude, Double longitude, Integer distance, String provider);
 
     List<BaseStationRadiation> listAllBaseStationRadiation();
 

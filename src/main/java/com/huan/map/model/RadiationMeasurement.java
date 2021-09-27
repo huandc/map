@@ -1,5 +1,6 @@
 package com.huan.map.model;
 
+import io.swagger.models.auth.In;
 import lombok.Data;
 
 /**
@@ -8,10 +9,10 @@ import lombok.Data;
  */
 @Data
 public class RadiationMeasurement {
-    int id;
+    Integer id;
     BaseStation baseStation; //基站
-    int distance; //距离基站中心水平距离
-    double average; //平均值
-    double powerDensity;//功率密度
+    Integer distance; //距离基站中心水平距离
+    Double average; //平均值
+    Double powerDensity;//功率密度
     String provider; //运营商/
 }

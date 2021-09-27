@@ -34,8 +34,7 @@ public class BaseStationRadiationServiceImpl implements BaseStationRadiationServ
         for (BaseStationRadiation baseStationRadiation : baseStationRadiationList) {
             List<BaseStationRadiation> stationRadiation = baseStationRadiationMapper.getBaseStationRadiation(
                     baseStationRadiation.getLatitude(), baseStationRadiation.getLongitude(),
-                    baseStationRadiation.getDistance(), baseStationRadiation.getAverage(),
-                    baseStationRadiation.getPowerDensity(), baseStationRadiation.getProvider());
+                    baseStationRadiation.getDistance(),  baseStationRadiation.getProvider());
             if (stationRadiation.size() > 0) {
                 continue;
             }

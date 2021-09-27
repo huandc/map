@@ -8,8 +8,8 @@ import lombok.Data;
  */
 @Data
 public class Base {
-    int id;
-    double latitude; //纬度
-    double longitude; //经度
+    Integer id;
+    Double latitude; //纬度
+    Double longitude; //经度
     String address; //地址
 }

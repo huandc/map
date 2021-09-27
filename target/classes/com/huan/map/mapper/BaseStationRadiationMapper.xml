@@ -5,6 +5,16 @@
 <!--写mapper的配置文件第一步就是要写<mapper></mapper>标签-->
 <!--<mapper></mapper>标签里包含着各个CURD操作的SQL语句-->
 <mapper namespace="com.huan.map.mapper.BaseStationRadiationMapper">
+    <insert id="addBaseStationRadiation" useGeneratedKeys="true" keyProperty="id">
+
+        insert into base_station_radiation (latitude, longitude, distance, average, powerDensity, provider)
+        values (#{latitude}, #{longitude}, #{distance}, #{average}, #{powerDensity}, #{provider})
+    </insert>
+    <delete id="deleteBaseStationRadiation">
+        delete
+        from base_station_radiation
+        where id = #{id}
+    </delete>
 
     <!--    &lt;!&ndash;查找语句&ndash;&gt;-->
     <!--    <select id="count" resultType="int">-->
@@ -13,15 +23,19 @@
 
 
     <select id="findAll" resultType="com.huan.map.model.BaseStationRadiation">
-        select latitude,longitude,distance,average,average,powerDensity,provider
-        from radiation_measurement  join base
+        select latitude, longitude, distance, average, powerDensity, provider
+        from radiation_measurement
+                 join base
         where base.address = radiation_measurement.address
     </select>
 
     <select id="findOneByLatAndLong" resultType="com.huan.map.model.BaseStationRadiation">
-        select latitude,longitude,distance,average,average,powerDensity,provider
-        from radiation_measurement  join base
-        where base.address = radiation_measurement.address and latitude = #{latitude} and longitude = #{longitude}
+        select latitude, longitude, distance, average, average, powerDensity, provider
+        from radiation_measurement
+                 join base
+        where base.address = radiation_measurement.address
+          and latitude = #{latitude}
+          and longitude = #{longitude}
     </select>
 
     <select id="findOneByAllParameters" resultType="com.huan.map.model.BaseStationRadiation">
@@ -37,6 +51,25 @@
         <if test="provider !=null and provider != ''">
             and provider=#{provider}
         </if>
+    </select>
+    <select id="getBaseStationRadiation" resultType="com.huan.map.model.BaseStationRadiation">
+        select *
+        from base_station_radiation
+        <where>
+            <if test="latitude != null and latitude != 0 and longitude != null and longitude != 0">
+                and latitude=#{latitude} and longitude=#{longitude}
+            </if>
+            <if test="distance gt 0">
+                and distance=#{distance}
+            </if>
+            <if test="provider !=null and provider != ''">
+                and provider=#{provider}
+            </if>
+        </where>
+    </select>
+    <select id="listAllBaseStationRadiation" resultType="com.huan.map.model.BaseStationRadiation">
+        select *
+        from base_station_radiation
     </select>
 
 </mapper>
