@@ -6,9 +6,12 @@
 <!--<mapper></mapper>标签里包含着各个CURD操作的SQL语句-->
 <mapper namespace="com.huan.map.mapper.UserMapper">
 
-    <select id="listUser" resultType="com.huan.map.model.User">
+    <select id="checkUser" resultType="com.huan.map.model.User">
         select *
         from user
-        where username = #{user}
+        where username = #{username}
+        and password=#{password}
     </select>
+
+
 </mapper>

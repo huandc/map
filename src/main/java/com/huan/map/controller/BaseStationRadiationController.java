@@ -29,7 +29,7 @@ public class BaseStationRadiationController {
     private BaseStationRadiationService baseStationRadiationService;
 
     @ApiOperation("查询所有基站辐射")
-    @PostMapping("/get")
+    @RequestMapping("/get")
     public List<BaseStationRadiation> getBaseStationRadiation() {
         return baseStationRadiationMapper.listAllBaseStationRadiation();
     }

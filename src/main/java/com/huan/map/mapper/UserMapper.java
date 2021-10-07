@@ -17,4 +17,6 @@ import java.util.List;
 @Repository
 public interface UserMapper {
     List<User> listUser(@Param("user") String user);
+
+    User checkUser(String username, String password);
 }
