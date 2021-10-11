@@ -1,7 +1,7 @@
 package com.huan.map.controller;
 
-import com.huan.map.mapper.BaseStationRadiationMapper;
 import com.huan.map.model.BaseStationRadiation;
+import com.huan.map.service.BaseStationRadiationService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +23,7 @@ import java.util.List;
 public class Controller {
 
     @Resource
-    private BaseStationRadiationMapper baseStationRadiationMapper;
+    private BaseStationRadiationService baseStationRadiationService;
 
     @RequestMapping("/")
     @ApiOperation("测试")
@@ -41,7 +41,7 @@ public class Controller {
     @ApiOperation("获取所有基站的辐射")
     @RequestMapping("/showAll")
     public List<BaseStationRadiation> showAll() {
-        return baseStationRadiationMapper.listAllBaseStationRadiation();
+        return baseStationRadiationService.listAllBaseStationRadiation();
     }
 
 
@@ -54,7 +54,7 @@ public class Controller {
                                               @RequestParam(value = "distance", defaultValue = "0") Integer distance,
                                               @RequestParam(value = "provider", defaultValue = "") String provider) {
 
-        return baseStationRadiationMapper.findOneByAllParameters(latitude, longitude, distance, provider);
+        return baseStationRadiationService.findOneByAllParameters(latitude, longitude, distance, provider);
     }
 
 }

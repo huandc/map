@@ -1,11 +1,14 @@
 package com.huan.map.service.impl;
 
 
+import com.huan.map.Exception.ValidateException;
 import com.huan.map.mapper.UserMapper;
 import com.huan.map.model.User;
 import com.huan.map.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Objects;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -15,6 +18,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User checkUser(String username, String password) {
+        if (Objects.isNull(username)){
+            throw new ValidateException("username is null");
+        }
+        if (Objects.isNull(password)){
+            throw new ValidateException("password is null");
+        }
         User user = usermapper.checkUser(username, password);
         return user;
     }

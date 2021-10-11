@@ -20,55 +20,55 @@ import java.util.List;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 class MapApplicationTests {
-//
-//    @Test
-//    void contextLoads() {
-//    }
-//
-//
-//    @Resource
-//    private BaseStationMapper baseStationMapper;
-//
-//    @Test
-//    public void getAllBaseStation(){
-//
-//        List<BaseStation> all = baseStationMapper.findAll();
+
+    @Test
+    void contextLoads() {
+    }
+
+
+    @Resource
+    private BaseStationMapper baseStationMapper;
+
+    @Test
+    public void getAllBaseStation(){
+
+        List<BaseStation> all = baseStationMapper.findAll();
+        all.forEach(
+                System.out::println
+        );
+    }
+
+    @Resource
+    private RadiationMeasurementMapper radiationMeasurementMapper;
+
+    @Test
+    public void getAllRadiationMeasurement(){
+
+        List<RadiationMeasurement> all = radiationMeasurementMapper.findAll();
+        System.out.println("all = " + all.size());
+        all.forEach(
+                System.out::println
+        );
+    }
+
+
+    @Resource
+    private BaseStationRadiationMapper baseStationRadiationMapper;
+
+    @Test
+    public void getAllBaseStationRadiation(){
+
+//        List<BaseStationRadiation> all = baseStationRadiationMapper.findAll();
 //        all.forEach(
 //                System.out::println
 //        );
-//    }
-//
-//    @Resource
-//    private RadiationMeasurementMapper radiationMeasurementMapper;
-//
-//    @Test
-//    public void getAllRadiationMeasurement(){
-//
-//        List<RadiationMeasurement> all = radiationMeasurementMapper.findAll();
-//        System.out.println("all = " + all.size());
-//        all.forEach(
-//                System.out::println
-//        );
-//    }
-//
-//
-//    @Resource
-//    private BaseStationRadiationMapper baseStationRadiationMapper;
-//
-//    @Test
-//    public void getAllBaseStationRadiation(){
-//
-////        List<BaseStationRadiation> all = baseStationRadiationMapper.findAll();
-////        all.forEach(
-////                System.out::println
-////        );
-//
-//        List<BaseStationRadiation> list = baseStationRadiationMapper.findOneByLatAndLong(30.47331, 114.276532);
-//
-//        list.forEach(
-//                System.out::println
-//        );
-//    }
+
+        List<BaseStationRadiation> list = baseStationRadiationMapper.findOneByLatAndLong(30.47331, 114.276532);
+
+        list.forEach(
+                System.out::println
+        );
+    }
 
 
 }
