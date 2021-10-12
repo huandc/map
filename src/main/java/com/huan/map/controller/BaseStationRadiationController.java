@@ -43,12 +43,11 @@ public class BaseStationRadiationController {
         return page;
     }
 
-    @ApiOperation("查询所有基站辐射")
+    @ApiOperation("查询一个基站辐射")
     @RequestMapping("/findById")
     public BaseStationRadiation findById(@RequestParam int id) {
 
         BaseStationRadiation baseStationRadiation = baseStationRadiationService.findById(id);
-
         return baseStationRadiation;
     }
 
