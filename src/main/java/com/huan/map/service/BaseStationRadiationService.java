@@ -27,5 +27,7 @@ public interface BaseStationRadiationService {
 
     int addBaseStationRadiation(BaseStationRadiation baseStationRadiation);
 
+    int updateBaseStationRadiation(BaseStationRadiation baseStationRadiation);
+
     int deleteBaseStationRadiation(@Param("id") int id);
 }

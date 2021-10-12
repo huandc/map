@@ -28,4 +28,6 @@ public interface BaseStationRadiationMapper {
     int addBaseStationRadiation(BaseStationRadiation baseStationRadiation);
 
     int deleteBaseStationRadiation(@Param("id") int id);
+
+    int updateBaseStationRadiation(BaseStationRadiation baseStationRadiation);
 }

@@ -16,6 +16,19 @@
         where id = #{id}
     </delete>
 
+    <delete id="baseStationRadiation">
+        update base_station_radiation
+        <set>
+            <if test="average != null">
+                average = #{average},
+            </if>
+            <if test="powerDensity != null">
+                powerDensity = #{powerDensity},
+            </if>
+        </set>
+        where id = #{id}
+    </delete>
+
     <!--    &lt;!&ndash;查找语句&ndash;&gt;-->
     <!--    <select id="count" resultType="int">-->
     <!--        select count(*) from base_station-->
