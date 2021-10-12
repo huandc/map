@@ -41,7 +41,7 @@ public class Controller {
     @ApiOperation("获取所有基站的辐射")
     @RequestMapping("/showAll")
     public List<BaseStationRadiation> showAll() {
-        return baseStationRadiationService.listAllBaseStationRadiation();
+        return baseStationRadiationService.findAll();
     }
 
 

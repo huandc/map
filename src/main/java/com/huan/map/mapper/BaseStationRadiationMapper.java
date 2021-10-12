@@ -23,7 +23,7 @@ public interface BaseStationRadiationMapper {
 
     List<BaseStationRadiation> getBaseStationRadiation(Double latitude, Double longitude, Integer distance, String provider);
 
-    List<BaseStationRadiation> listAllBaseStationRadiation();
+    List<BaseStationRadiation> listAllBaseStationRadiation(Integer start,Integer end);
 
     int addBaseStationRadiation(BaseStationRadiation baseStationRadiation);
 

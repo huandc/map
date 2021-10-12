@@ -26,18 +26,18 @@ public class LoginController {
 
     @PostMapping("/login")
     @ResponseBody
-    public String login(@RequestBody User user,
+    public Boolean login(@RequestBody User user,
                         HttpSession session, RedirectAttributes attributes){
-        userService.checkUser(user.getUsername(), user.getPassword());
-        System.out.println();
-        if (user!=null){
+        User usr = userService.checkUser(user.getUsername(), user.getPassword());
+        System.out.println(usr);
+        if (usr!=null){
             //登录成功
             user.setPassword(null);
             session.setAttribute("user",user);
-            return "admin/index";
+            return Boolean.TRUE;
         }else {
             attributes.addFlashAttribute("message","用户名或密码错误");
-            return "redirect:/admin";
+            return Boolean.FALSE;
         }
     }
 

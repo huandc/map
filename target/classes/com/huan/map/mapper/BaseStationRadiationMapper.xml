@@ -72,6 +72,7 @@
     <select id="listAllBaseStationRadiation" resultType="com.huan.map.model.BaseStationRadiation">
         select *
         from base_station_radiation
+        limit #{start},#{end}
     </select>
 
 </mapper>

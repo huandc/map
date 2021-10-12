@@ -23,7 +23,7 @@ public interface BaseStationRadiationService {
 
     List<BaseStationRadiation> getBaseStationRadiation(Double latitude, Double longitude, Integer distance, String provider);
 
-    List<BaseStationRadiation> listAllBaseStationRadiation();
+    List<BaseStationRadiation> listAllBaseStationRadiation(Integer pageNo,Integer size);
 
     int addBaseStationRadiation(BaseStationRadiation baseStationRadiation);
 

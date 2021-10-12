@@ -2,6 +2,7 @@ package com.huan.map.controller;
 
 import com.huan.map.mapper.BaseStationRadiationMapper;
 import com.huan.map.model.BaseStationRadiation;
+import com.huan.map.model.dto.PageBaseStationRadiation;
 import com.huan.map.service.BaseStationRadiationService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -30,21 +31,31 @@ public class BaseStationRadiationController {
 
     @ApiOperation("查询所有基站辐射")
     @RequestMapping("/get")
-    public List<BaseStationRadiation> getBaseStationRadiation() {
-        return baseStationRadiationMapper.listAllBaseStationRadiation();
+    public PageBaseStationRadiation getBaseStationRadiation(@RequestParam(defaultValue = "1") Integer pageNo,
+                                                            @RequestParam(defaultValue = "20") Integer size) {
+
+        List<BaseStationRadiation> allBaseStationRadiation = baseStationRadiationService.listAllBaseStationRadiation(pageNo,size);
+        PageBaseStationRadiation page = new PageBaseStationRadiation();
+        page.setAllBaseStationRadiation(allBaseStationRadiation);
+        page.setPageNo(pageNo);
+
+        return page;
+
+
     }
 
     @ApiOperation("新增基站辐射")
     @PostMapping("/add")
+    @ResponseBody
     public int addBaseStationRadiation(@ApiParam(name = "BaseStationRadiation", value = "基站辐射", required = true)
                                        @RequestBody BaseStationRadiation requestDTO) {
-        return baseStationRadiationMapper.addBaseStationRadiation(requestDTO);
+        return baseStationRadiationService.addBaseStationRadiation(requestDTO);
     }
 
     @ApiOperation("删除基站辐射")
     @PostMapping("/delete")
     public int deleteBaseStationRadiation(@ApiParam(name = "id", value = "id") @RequestParam int id) {
-        return baseStationRadiationMapper.deleteBaseStationRadiation(id);
+        return baseStationRadiationService.deleteBaseStationRadiation(id);
     }
 
     @ApiOperation("从radiation_measurement和base刷新数据到base_station_radiation")

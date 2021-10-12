@@ -1,11 +1,14 @@
 package com.huan.map;
 
+import com.huan.map.controller.BaseStationRadiationController;
 import com.huan.map.mapper.BaseStationMapper;
 import com.huan.map.mapper.BaseStationRadiationMapper;
 import com.huan.map.mapper.RadiationMeasurementMapper;
 import com.huan.map.model.BaseStation;
 import com.huan.map.model.BaseStationRadiation;
 import com.huan.map.model.RadiationMeasurement;
+import com.huan.map.model.dto.PageBaseStationRadiation;
+import com.huan.map.service.BaseStationRadiationService;
 import com.huan.map.service.UserService;
 import com.huan.map.util.MD5Utils;
 import org.junit.jupiter.api.Test;
@@ -31,10 +34,13 @@ class MapApplicationTests {
     @Resource
     private UserService userService;
 
+    @Resource
+    private BaseStationRadiationService baseStationRadiationService;
+
     @Test
     public void user(){
-        System.out.println(userService.checkUser("admin", "admin"));
-
+        List<BaseStationRadiation> baseStationRadiations = baseStationRadiationService.listAllBaseStationRadiation(1, 20);
+        System.out.println(baseStationRadiations);
     }
 
     @Resource

@@ -52,7 +52,7 @@ public class BaseStationRadiationServiceImpl implements BaseStationRadiationServ
 
     @Override
     public List<BaseStationRadiation> findOneByLatAndLong(double latitude, double longitude) {
-        if (Objects.isNull(latitude) || Objects.isNull(longitude)){
+        if (Objects.isNull(latitude) || Objects.isNull(longitude)) {
             throw new ValidateException("latitude and longitude must is null");
         }
         return baseStationRadiationMapper.findOneByLatAndLong(latitude, longitude);
@@ -69,28 +69,30 @@ public class BaseStationRadiationServiceImpl implements BaseStationRadiationServ
     }
 
     @Override
-    public List<BaseStationRadiation> listAllBaseStationRadiation() {
-        return baseStationRadiationMapper.listAllBaseStationRadiation();
+    public List<BaseStationRadiation> listAllBaseStationRadiation(Integer pageNo, Integer size) {
+        Integer start = (pageNo - 1) * size;
+        Integer end = start + size;
+        return baseStationRadiationMapper.listAllBaseStationRadiation(start, end);
     }
 
     @Override
     public int addBaseStationRadiation(BaseStationRadiation baseStationRadiation) {
-        if (Objects.isNull(baseStationRadiation)){
+        if (Objects.isNull(baseStationRadiation)) {
             throw new ValidateException("baseStationRadiation is null");
         }
-        if (Objects.isNull(baseStationRadiation.getLatitude())){
+        if (Objects.isNull(baseStationRadiation.getLatitude())) {
             throw new ValidateException("baseStationRadiation.getLatitude is null");
         }
-        if (Objects.isNull(baseStationRadiation.getLongitude())){
+        if (Objects.isNull(baseStationRadiation.getLongitude())) {
             throw new ValidateException("baseStationRadiation.getLongitude is null");
         }
-        if (Objects.isNull(baseStationRadiation.getDistance())){
+        if (Objects.isNull(baseStationRadiation.getDistance())) {
             throw new ValidateException("baseStationRadiation.getDistance is null");
         }
-        if (Objects.isNull(baseStationRadiation.getProvider())){
+        if (Objects.isNull(baseStationRadiation.getProvider())) {
             throw new ValidateException("baseStationRadiation.getProvider is null");
         }
-        if (Objects.isNull(baseStationRadiation.getPowerDensity())){
+        if (Objects.isNull(baseStationRadiation.getPowerDensity())) {
             throw new ValidateException("baseStationRadiation.getPowerDensity is null");
         }
 
