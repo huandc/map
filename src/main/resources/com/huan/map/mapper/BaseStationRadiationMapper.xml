@@ -23,10 +23,8 @@
 
 
     <select id="findAll" resultType="com.huan.map.model.BaseStationRadiation">
-        select latitude, longitude, distance, average, powerDensity, provider
-        from radiation_measurement
-                 join base
-        where base.address = radiation_measurement.address
+        select *
+        from base_station_radiation
     </select>
 
     <select id="findOneByLatAndLong" resultType="com.huan.map.model.BaseStationRadiation">

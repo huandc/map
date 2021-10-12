@@ -34,7 +34,7 @@ public class BaseStationRadiationController {
     public PageBaseStationRadiation getBaseStationRadiation(@RequestParam(defaultValue = "1") Integer pageNo,
                                                             @RequestParam(defaultValue = "20") Integer size) {
 
-        List<BaseStationRadiation> allBaseStationRadiation = baseStationRadiationService.listAllBaseStationRadiation(pageNo,size);
+        List<BaseStationRadiation> allBaseStationRadiation = baseStationRadiationService.listAllBaseStationRadiation(pageNo, size);
         PageBaseStationRadiation page = new PageBaseStationRadiation();
         page.setAllBaseStationRadiation(allBaseStationRadiation);
         page.setPageNo(pageNo);
@@ -47,15 +47,28 @@ public class BaseStationRadiationController {
     @ApiOperation("新增基站辐射")
     @PostMapping("/add")
     @ResponseBody
-    public int addBaseStationRadiation(@ApiParam(name = "BaseStationRadiation", value = "基站辐射", required = true)
-                                       @RequestBody BaseStationRadiation requestDTO) {
-        return baseStationRadiationService.addBaseStationRadiation(requestDTO);
+    public Boolean addBaseStationRadiation(@ApiParam(name = "BaseStationRadiation", value = "基站辐射", required = true)
+                                           @RequestBody BaseStationRadiation requestDTO) {
+        int res = baseStationRadiationService.addBaseStationRadiation(requestDTO);
+        if (res > 0) {
+            return Boolean.TRUE;
+        } else {
+            return Boolean.FALSE;
+        }
+
     }
 
     @ApiOperation("删除基站辐射")
     @PostMapping("/delete")
-    public int deleteBaseStationRadiation(@ApiParam(name = "id", value = "id") @RequestParam int id) {
-        return baseStationRadiationService.deleteBaseStationRadiation(id);
+    @ResponseBody
+    public Boolean deleteBaseStationRadiation(@ApiParam(name = "id", value = "id") @RequestParam int id) {
+        int res = baseStationRadiationService.deleteBaseStationRadiation(id);
+        if (res > 0) {
+            return Boolean.TRUE;
+        } else {
+            return Boolean.FALSE;
+        }
+
     }
 
     @ApiOperation("从radiation_measurement和base刷新数据到base_station_radiation")
