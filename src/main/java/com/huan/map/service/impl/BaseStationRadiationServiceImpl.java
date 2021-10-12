@@ -100,6 +100,16 @@ public class BaseStationRadiationServiceImpl implements BaseStationRadiationServ
     }
 
     @Override
+    public BaseStationRadiation findById(int id) {
+        return baseStationRadiationMapper.findById(id);
+    }
+
+    @Override
+    public int count() {
+        return baseStationRadiationMapper.count();
+    }
+
+    @Override
     public int updateBaseStationRadiation(BaseStationRadiation baseStationRadiation) {
         return baseStationRadiationMapper.updateBaseStationRadiation(baseStationRadiation);
     }

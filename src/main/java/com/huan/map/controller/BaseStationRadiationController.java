@@ -37,12 +37,19 @@ public class BaseStationRadiationController {
         List<BaseStationRadiation> allBaseStationRadiation = baseStationRadiationService.listAllBaseStationRadiation(pageNo, size);
         PageBaseStationRadiation page = new PageBaseStationRadiation();
         page.setAllBaseStationRadiation(allBaseStationRadiation);
-        page.setTotal(allBaseStationRadiation.size());
+        int total = baseStationRadiationService.count();
+        page.setTotal(total);
         page.setPageNo(pageNo);
-
         return page;
+    }
 
+    @ApiOperation("查询所有基站辐射")
+    @RequestMapping("/findById")
+    public BaseStationRadiation findById(@RequestParam int id) {
 
+        BaseStationRadiation baseStationRadiation = baseStationRadiationService.findById(id);
+
+        return baseStationRadiation;
     }
 
     @ApiOperation("新增基站辐射")

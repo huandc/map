@@ -26,6 +26,8 @@ public interface BaseStationRadiationService {
     List<BaseStationRadiation> listAllBaseStationRadiation(Integer pageNo,Integer size);
 
     int addBaseStationRadiation(BaseStationRadiation baseStationRadiation);
+    BaseStationRadiation findById(int id);
+    int count();
 
     int updateBaseStationRadiation(BaseStationRadiation baseStationRadiation);
 

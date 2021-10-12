@@ -34,17 +34,26 @@
     <!--        select count(*) from base_station-->
     <!--    </select>-->
 
-
+    <select id="count">
+        select count(*)
+        from base_station_radiation
+    </select>
     <select id="findAll" resultType="com.huan.map.model.BaseStationRadiation">
         select *
         from base_station_radiation
     </select>
 
+    <select id="findById" resultType="com.huan.map.model.BaseStationRadiation">
+        select *
+        from base_station_radiation
+        where id = #{id}
+    </select>
+
+
     <select id="findOneByLatAndLong" resultType="com.huan.map.model.BaseStationRadiation">
         select *
         from base_station_radiation
-        where
-          latitude = #{latitude}
+        where latitude = #{latitude}
           and longitude = #{longitude}
     </select>
 

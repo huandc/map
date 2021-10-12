@@ -29,5 +29,9 @@ public interface BaseStationRadiationMapper {
 
     int deleteBaseStationRadiation(@Param("id") int id);
 
+    BaseStationRadiation findById(@Param("id") int id);
+
     int updateBaseStationRadiation(BaseStationRadiation baseStationRadiation);
+
+    int count();
 }
