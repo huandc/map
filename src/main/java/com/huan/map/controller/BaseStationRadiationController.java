@@ -37,6 +37,7 @@ public class BaseStationRadiationController {
         List<BaseStationRadiation> allBaseStationRadiation = baseStationRadiationService.listAllBaseStationRadiation(pageNo, size);
         PageBaseStationRadiation page = new PageBaseStationRadiation();
         page.setAllBaseStationRadiation(allBaseStationRadiation);
+        page.setTotal(allBaseStationRadiation.size());
         page.setPageNo(pageNo);
 
         return page;
