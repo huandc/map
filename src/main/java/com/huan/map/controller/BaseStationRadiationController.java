@@ -59,7 +59,7 @@ public class BaseStationRadiationController {
     }
 
     @ApiOperation("删除基站辐射")
-    @PostMapping("/delete")
+    @DeleteMapping("/delete")
     @ResponseBody
     public Boolean deleteBaseStationRadiation(@ApiParam(name = "id", value = "id") @RequestParam int id) {
         int res = baseStationRadiationService.deleteBaseStationRadiation(id);
