@@ -39,8 +39,9 @@ class MapApplicationTests {
 
     @Test
     public void user(){
-        List<BaseStationRadiation> baseStationRadiations = baseStationRadiationService.listAllBaseStationRadiation(1, 20);
-        System.out.println(baseStationRadiations);
+        int total = baseStationRadiationService.count();
+        System.out.println(total);
+
     }
 
     @Resource

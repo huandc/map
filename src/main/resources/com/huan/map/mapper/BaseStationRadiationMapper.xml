@@ -16,7 +16,7 @@
         where id = #{id}
     </delete>
 
-    <delete id="baseStationRadiation">
+    <delete id="updateBaseStationRadiation">
         update base_station_radiation
         <set>
             <if test="average != null">
@@ -34,7 +34,7 @@
     <!--        select count(*) from base_station-->
     <!--    </select>-->
 
-    <select id="count">
+    <select id="count" resultType="java.lang.Integer">
         select count(*)
         from base_station_radiation
     </select>
