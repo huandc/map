@@ -40,17 +40,19 @@
 
     <select id="findOneByAllParameters" resultType="com.huan.map.model.BaseStationRadiation">
         select latitude,longitude,distance,average,average,powerDensity,provider
-        from radiation_measurement join base
-        where base.address = radiation_measurement.address
-        <if test="latitude != null and latitude != 0 and longitude != null and longitude != 0">
-            and latitude=#{latitude} and longitude=#{longitude}
-        </if>
-        <if test="distance gt 0">
-            and distance=#{distance}
-        </if>
-        <if test="provider !=null and provider != ''">
-            and provider=#{provider}
-        </if>
+        from base_station_radiation
+        <where>
+            <if test="latitude != null and latitude != 0 and longitude != null and longitude != 0">
+                and latitude=#{latitude} and longitude=#{longitude}
+            </if>
+            <if test="distance gt 0">
+                and distance=#{distance}
+            </if>
+            <if test="provider !=null and provider != ''">
+                and provider=#{provider}
+            </if>
+        </where>
+
     </select>
     <select id="getBaseStationRadiation" resultType="com.huan.map.model.BaseStationRadiation">
         select *

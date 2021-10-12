@@ -6,16 +6,14 @@ import com.huan.map.service.UserService;
 import com.huan.map.util.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/admin")
+@CrossOrigin(value = "*",maxAge = 3600)
 public class LoginController {
 
     @Autowired
@@ -27,10 +25,11 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String username, @RequestParam String password,
+    @ResponseBody
+    public String login(@RequestBody User user,
                         HttpSession session, RedirectAttributes attributes){
-        User user = userService.checkUser(username, MD5Utils.code(password));
-
+        userService.checkUser(user.getUsername(), user.getPassword());
+        System.out.println();
         if (user!=null){
             //登录成功
             user.setPassword(null);

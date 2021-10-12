@@ -6,6 +6,8 @@ import com.huan.map.mapper.RadiationMeasurementMapper;
 import com.huan.map.model.BaseStation;
 import com.huan.map.model.BaseStationRadiation;
 import com.huan.map.model.RadiationMeasurement;
+import com.huan.map.service.UserService;
+import com.huan.map.util.MD5Utils;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,6 +27,15 @@ class MapApplicationTests {
     void contextLoads() {
     }
 
+
+    @Resource
+    private UserService userService;
+
+    @Test
+    public void user(){
+        System.out.println(userService.checkUser("admin", "admin"));
+
+    }
 
     @Resource
     private BaseStationMapper baseStationMapper;
