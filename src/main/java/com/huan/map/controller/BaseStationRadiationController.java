@@ -7,6 +7,7 @@ import com.huan.map.service.BaseStationRadiationService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -65,11 +66,30 @@ public class BaseStationRadiationController {
 
     }
 
+    @ApiOperation("新增基站辐射")
+    @PostMapping("/addList")
+    @Transactional
+    @ResponseBody
+    public Boolean addListBaseStationRadiation(@ApiParam(name = "BaseStationRadiation", value = "基站辐射", required = true)
+                                               @RequestBody List<BaseStationRadiation> list) {
+        int res = 0;
+        for (BaseStationRadiation baseStationRadiation : list) {
+            res += baseStationRadiationService.addBaseStationRadiation(baseStationRadiation);
+        }
+        if (res == list.size()) {
+            return Boolean.TRUE;
+        } else {
+            return Boolean.FALSE;
+        }
+
+    }
+
+
     @ApiOperation("修改基站辐射")
     @PostMapping("/update")
     @ResponseBody
     public Boolean updateBaseStationRadiation(@ApiParam(name = "BaseStationRadiation", value = "基站辐射", required = true)
-                                           @RequestBody BaseStationRadiation requestDTO) {
+                                              @RequestBody BaseStationRadiation requestDTO) {
         int res = baseStationRadiationService.updateBaseStationRadiation(requestDTO);
         if (res > 0) {
             return Boolean.TRUE;
